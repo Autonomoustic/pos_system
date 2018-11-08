@@ -3,7 +3,7 @@
   justify-content: space-around;
   height: 60px;
   padding: 0 20px;
-  background-color: #b2cfff;
+  background-color: #e0eaf9;
 }
 
 .nav_logo {
@@ -64,4 +64,15 @@
 
 .nav_button a:hover {
   background-color: rgba(255, 255, 255, 0.4);
+}
+
+.sign-up-container {
+  background-color: lightblue;
+  height: 600px;
+  width: 400px;
+  margin: auto;
+  margin-top: 60px;
+  border-radius: 5%;
+  box-shadow: 5px 10px 5px;
+  text-align: center;
 }

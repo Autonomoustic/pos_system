@@ -31,7 +31,6 @@ class SignUpContainer extends React.Component {
   validateSignUp = (resp) => {
     if (resp.error) {
       this.setState({error: resp.error})
-      console.log()
     } else {
       this.setState({username: resp.name, password: resp.password})
       this.props.signInUser(resp)

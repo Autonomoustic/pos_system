@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-import CategoriesContainer from './containers/CategoriesContainer'
-import ItemsContainer from './containers/ItemsContainer'
+import CategoriesContainer from './Containers/CategoriesContainer'
+import ItemsContainer from './Containers/ItemsContainer'
 import API from './API'
 import Nav from './Components/Nav'
 import SignUpContainer from './Containers/SignUpContainer'
@@ -25,15 +25,13 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <React.Fragment>
       <Nav />
-      <SignUpContainer />
-      <div className="App">
-      <p> Welcome to the POS system! </p>
-      <CategoriesContainer categories={this.state.categories}/>
 
-      </div>
-      </>
+      {true ? null : <SignUpContainer />}
+      <p> Welcome to the POS system! </p>
+      <CategoriesContainer categories={this.state.categories} />
+      </React.Fragment>
     );
   }
 }

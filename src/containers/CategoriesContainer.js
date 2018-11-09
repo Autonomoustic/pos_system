@@ -1,6 +1,6 @@
 import React from 'react'
-import Category from '../components/Category'
-import ItemsContainer from '../containers/ItemsContainer'
+import Category from '../Components/Category'
+import ItemsContainer from '../Containers/ItemsContainer'
 
 
 class CategoriesContainer extends React.Component {

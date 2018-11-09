@@ -71,6 +71,28 @@
   max-height: 100px;
 
 }
+.page-container{
+  background-color: lightblue;
+  height: 500px;
+  width: 60%;
+  margin-right: 20px;
+  text-align: center;
+  float: right;
+  border-radius: 5%;
+  box-shadow: 5px 10px 5px;
+}
+.category-box {
+  column-count: 3;
+  overflow: scroll;
+  height: 250px;
+  display: flex;
+}
+.item-box {
+  column-count: 3;
+  overflow: scroll;
+  height: 250px;
+  display: flex;
+}
 
 .sign-up-container {
   background-color: lightblue;

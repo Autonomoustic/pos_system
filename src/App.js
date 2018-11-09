@@ -29,8 +29,8 @@ class App extends Component {
       <Nav />
 
       {true ? null : <SignUpContainer />}
-      <p> Welcome to the POS system! </p>
       <CategoriesContainer categories={this.state.categories} />
+
       </React.Fragment>
     );
   }

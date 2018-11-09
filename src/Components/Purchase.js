@@ -4,24 +4,20 @@ export default class Purchase extends React.Component {
 
 
   calculateTotalCost() {
-
-    const { purchase } = this.props
-      return (
-      let arr = []
-      for (let price in purchase) {
-       if (purchase.hasOwnProperty(price)) {
-         arr.push( [ price, purchase[price] ] );
-           }
-        }
-    return <p>Your total is { totalCost } </p>
-    )
+    let counter = 0;
+    this.props.purchase.map(purchaseItem => counter += purchaseItem.price)
+    return counter
   }
 
 
 
   render() {
     return (
-     <div>{ this.props.purchase.map(purchaseItem => <p> { purchaseItem.name } </p> ) } </div>
+     <div>
+     { console.log(this.props.purchase.length),
+       this.props.purchase.map(purchaseItem => <p> { purchaseItem.name + this.props.purchase.filter(item => item.name === purchaseItem.name).length} </p> ) }
+     <p> Total : £ { this.calculateTotalCost() } </p>
+     </div>
   )
   }
 

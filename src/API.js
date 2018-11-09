@@ -2,12 +2,24 @@ class API {
 
   static init () {
     this.baseUrl = 'http://localhost:3001'
-
   }
 
-  static getCategories() {
+  static getCategories () {
     return fetch('http://localhost:3001/categories')
   .then(resp => resp.json())
+  }
+
+  static getStores () {
+    return fetch(this.basUrl + '/stores')
+      .then(resp => resp.json())
+  }
+
+  static postNewUser (newUser) {
+    return fetch(this.baseUrl + '/stores', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newUser)
+    }).then(resp => resp.json())
   }
 
 }

@@ -10,7 +10,8 @@ import './App.css'
 class App extends Component {
 
   state = {
-    categories: null
+    categories: null,
+    currentUser: undefined
   }
 
 
@@ -22,15 +23,25 @@ class App extends Component {
       })})
   }
 
+  signInUser = (user) => {
+    this.setState({currentUser: user})
+    console.log(this.state.currentUser)
+  }
+
 
   render() {
     return (
       <React.Fragment>
-      <Nav />
-
-      {true ? null : <SignUpContainer />}
-      <p> Welcome to the POS system! </p>
-      <CategoriesContainer categories={this.state.categories} />
+        <Nav />
+        { this.state.currentUser ?
+          null
+          :
+          <SignUpContainer signInUser={this.signInUser}/>
+        }
+        {/*
+          <p> Welcome to the POS system! </p>
+          <CategoriesContainer categories={this.state.categories} />
+        */}
       </React.Fragment>
     );
   }

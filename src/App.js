@@ -1,9 +1,8 @@
 
 import React, { Component } from 'react';
-import CategoriesContainer from './Containers/CategoriesContainer'
-import ItemsContainer from './Containers/ItemsContainer'
 import API from './API'
 import Nav from './Components/Nav'
+import Store from './Containers/Store'
 import SignUpContainer from './Containers/SignUpContainer'
 import './App.css'
 
@@ -29,7 +28,7 @@ class App extends Component {
       <Nav />
 
       {true ? null : <SignUpContainer />}
-      <CategoriesContainer categories={this.state.categories} />
+      <Store categories={this.state.categories}/>
 
       </React.Fragment>
     );

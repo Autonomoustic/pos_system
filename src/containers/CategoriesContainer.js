@@ -22,17 +22,16 @@ class CategoriesContainer extends React.Component {
     <div className='page-container'>
     <div className='category-box'>
     { this.props.categories &&
-      this.props.categories.map(category => <Category category={category} categoryItems={this.showCategoryItems}/>)
+      this.props.categories.map(category => <Category category={category} categoryItems={this.showCategoryItems} addToPurchase={this.addToPurchase}/>)
     }
     </div>
 
     <div className='item-box'>
     { this.state.categoryItems &&
-      <ItemsContainer categoryItems={this.state.categoryItems}/>
+      <ItemsContainer categoryItems={this.state.categoryItems} addToPurchase={this.props.addToPurchase}/>
     }
     </div>
     </div>
-
     )}
 
 }

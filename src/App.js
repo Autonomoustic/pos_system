@@ -17,8 +17,6 @@ class App extends Component {
     currentUser: null
   }
 
-  
-
   signInUser = (username, password) => {
     API.getStores()
       .then(resp => {

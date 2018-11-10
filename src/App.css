@@ -133,7 +133,7 @@ input[type=text], input[type=password], select[type=dropdown]{
   margin-top: 10px;
   margin-bottom: 30px;
   padding-top: 20px;
-  
+}
 
 .purchase {
   background-color:  #ffffcc;

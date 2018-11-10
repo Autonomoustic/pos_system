@@ -34,9 +34,9 @@ export default class Store extends React.Component {
   render() {
     return(
     <div className="store-welcome">
-    <h1>Welcome back, (store name)</h1>
+    <h1>Welcome back, {this.props.currentUser.name}</h1>
     <Purchase purchase={this.state.currentPurchase}/>
-      <CategoriesContainer categories={this.props.categories} addToPurchase={this.addToPurchase}/>
+      <CategoriesContainer categories={this.props.currentUser.categories} addToPurchase={this.addToPurchase}/>
     </div>
   )}
 

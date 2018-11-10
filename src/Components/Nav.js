@@ -15,9 +15,11 @@ const Nav = props =>
       </ul>
 
       <div className='nav_button'>
-        <Link to='/signin' >
-          Sign in
-        </Link>
+        { props.currentUser ?
+          <Link to='/' onClick={() => props.signOutUser()}>Sign Out</Link>
+            :
+          <Link to='/signin' >Sign in</Link>
+        }
       </div>
     </div>
   </div>

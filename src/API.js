@@ -9,9 +9,9 @@ class API {
   .then(resp => resp.json())
   }
 
-  static getStores (event) {
+  static getStores () {
     return fetch('http://localhost:3001/stores')
-      .then(resp => { return {resp: resp.json(), event: event} })
+      .then(resp => resp.json())
   }
 
   static postNewUser (newUser) {

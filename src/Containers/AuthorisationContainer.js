@@ -1,6 +1,9 @@
 import React from 'react'
 
+import { Route } from 'react-router-dom'
+
 import SignUp from '../Components/SignUp'
+import SignIn from '../Components/SignIn'
 
 import API from '../API'
 
@@ -28,13 +31,22 @@ class SignUpContainer extends React.Component {
       this.setState({error: resp.error})
     } else {
       this.setState({username: resp.name, password: resp.password})
-      this.props.signInUser(resp)
+      this.props.signInUser(resp.name, resp.password)
     }
+  }
+
+  signInExistingUser = event => {
+    event.preventDefault()
+    this.setState({username: event.target.uname.value, password: event.target.psw.value})
+    this.props.signInUser(event.target.uname.value, event.target.psw.value)
   }
 
   render () {
     return (
-      <SignUp error={this.state.error} handleSubmit={this.signUpNewUser}/>
+      <>
+      <Route exact path='/' render={() => <SignUp error={this.state.error} handleSubmit={this.signUpNewUser}/> }/>
+      <Route exact path='/signin' render={() => <SignIn signInExistingUser={this.signInExistingUser}/>}/>
+      </>
     )
   }
 }

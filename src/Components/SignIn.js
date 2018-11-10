@@ -5,7 +5,7 @@ import SignInForm from './SignInForm'
 const SignIn = props =>
   <div className='sign-up-container'>
     <h1>Sign In</h1>
-    <SignInForm submitHandler={props.submitHandler} />
+    <SignInForm signInExistingUser={props.signInExistingUser} />
   </div>
 
 export default SignIn

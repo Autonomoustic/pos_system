@@ -16,8 +16,8 @@ export default class Purchase extends React.Component {
 
   listAllItems(arr) {
     let newArr = this.removeDuplication(arr)
-    let itemList = newArr.map(purchaseItem => <p> {purchaseItem.name}  x {this.props.purchase.filter(item => item.name === purchaseItem.name).length} </p> )
-    console.log(itemList)
+    let itemList = newArr.map(purchaseItem => <p> {purchaseItem.name}  x {this.props.purchase.filter(item => item.name === purchaseItem.name).length} <button onClick={() => this.props.removefromPurchase(purchaseItem)}>X</button></p> )
+    console.log(this.props)
     return itemList
   }
 

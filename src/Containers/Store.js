@@ -37,6 +37,7 @@ export default class Store extends React.Component {
     <h1>Welcome back, {this.props.currentUser.name}</h1>
     <Purchase purchase={this.state.currentPurchase}/>
       <CategoriesContainer categories={this.props.currentUser.categories} addToPurchase={this.addToPurchase}/>
+
     </div>
   )}
 

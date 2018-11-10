@@ -1,6 +1,7 @@
 import React from 'react'
 import Category from '../Components/Category'
 import ItemsContainer from '../Containers/ItemsContainer'
+import '../App.css'
 
 
 class CategoriesContainer extends React.Component {
@@ -18,14 +19,18 @@ class CategoriesContainer extends React.Component {
 
   render() {
   return (
-    <div>
-    <p>CategoriesContainer</p>
+    <div className='page-container'>
+    <div className='category-box'>
     { this.props.categories &&
-      this.props.categories.map(category => <Category category={category} categoryItems={this.showCategoryItems}/>)
+      this.props.categories.map(category => <Category category={category} categoryItems={this.showCategoryItems} addToPurchase={this.addToPurchase}/>)
     }
+    </div>
+
+    <div className='item-box'>
     { this.state.categoryItems &&
-      <ItemsContainer categoryItems={this.state.categoryItems}/>
+      <ItemsContainer categoryItems={this.state.categoryItems} addToPurchase={this.props.addToPurchase}/>
     }
+    </div>
     </div>
     )}
 

@@ -6,6 +6,7 @@ import CategoriesContainer from './Containers/CategoriesContainer'
 import ItemsContainer from './Containers/ItemsContainer'
 import API from './API'
 import Nav from './Components/Nav'
+import Store from './Containers/Store'
 import SignUpContainer from './Containers/SignUpContainer'
 import SignIn from './Components/SignIn'
 
@@ -52,6 +53,8 @@ class App extends Component {
     return (
       <React.Fragment>
 
+      {true ? null : <SignUpContainer />}
+      <Store categories={this.state.categories}/>
         <Router>
           <>
             <Route path='/' render={Nav} />
@@ -74,6 +77,7 @@ class App extends Component {
           <p> Welcome to the POS system! </p>
           <CategoriesContainer categories={this.state.categories} />
         */}
+
       </React.Fragment>
     );
   }

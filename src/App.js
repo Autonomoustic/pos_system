@@ -15,7 +15,7 @@ class App extends Component {
 
   state = {
     categories: null,
-    currentUser: undefined
+    currentUser: null
   }
 
 
@@ -27,9 +27,24 @@ class App extends Component {
       })})
   }
 
+  signInExistingUser = (event) => {
+    event.preventDefault()
+    API.getStores(event)
+      .then(obj => {
+        console.log(obj.resp)
+        let stores = obj.resp.PromiseValue
+        console.log(stores)
+        return this.signInUser(obj.resp.find(store => {
+        if (store.name === obj.event.target.uname.value && store.password === obj.event.target.psw.value){
+          return
+        } else {
+          console.log('not found')
+        }
+      }))})
+  }
+
   signInUser = (user) => {
     this.setState({currentUser: user})
-    console.log(this.state.currentUser)
   }
 
 
@@ -41,7 +56,7 @@ class App extends Component {
           <>
             <Route path='/' render={Nav} />
 
-            <Route path='/signin' render={SignIn}/>
+            <Route path='/signin' render={() => <SignIn submitHandler={this.signInExistingUser} />}/>
 
           <Route
           exact path='/'

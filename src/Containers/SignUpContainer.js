@@ -12,11 +12,6 @@ class SignUpContainer extends React.Component {
   }
 
 
-  /* method to take inputs on submit
-      create object
-      post it
-  */
-
   signUpNewUser = event => {
     event.preventDefault()
     const newUser = {

@@ -9,13 +9,13 @@ class API {
   .then(resp => resp.json())
   }
 
-  static getStores () {
-    return fetch(this.basUrl + '/stores')
-      .then(resp => resp.json())
+  static getStores (event) {
+    return fetch('http://localhost:3001/stores')
+      .then(resp => { return {resp: resp.json(), event: event} })
   }
 
   static postNewUser (newUser) {
-    return fetch(this.baseUrl + '/stores', {
+    return fetch('http://localhost:3001/stores', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newUser)

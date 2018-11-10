@@ -26,7 +26,7 @@ import Item from '../Components/Item'
   const { categoryItems } = this.props
   return (
     <div>
-      { categoryItems.map( item => <Item item={item} add={this.addToTransaction} remove={this.removefromTransaction} addToPurchase={this.props.addToPurchase} /> ) }
+      { categoryItems.map( item => <Item item={item} add={this.addToPurchase} remove={this.removefromTransaction} addToPurchase={this.props.addToPurchase} /> ) }
     </div>
     )
   }

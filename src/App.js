@@ -1,36 +1,51 @@
 
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import CategoriesContainer from './Containers/CategoriesContainer'
+import ItemsContainer from './Containers/ItemsContainer'
 import API from './API'
 import Nav from './Components/Nav'
 import Store from './Containers/Store'
-import SignUpContainer from './Containers/SignUpContainer'
+import AuthorisationContainer from './Containers/AuthorisationContainer'
+
 import './App.css'
 
 class App extends Component {
 
   state = {
-    categories: null
+    currentUser: null
   }
 
+  
 
-  componentDidMount() {
-    API.getCategories()
-    .then(resp => {
-      this.setState({
-        categories: resp
-      })})
+  signInUser = (username, password) => {
+    API.getStores()
+      .then(resp => {
+        this.setState({currentUser: resp.find(store => store.name === username && store.password === password )})
+      })
   }
+
+  isLoggedIn = (currentUser) => {
+    if(currentUser){
+      return <Store currentUser={this.state.currentUser} categories={this.state.categories}/>
+    } else {
+      return <AuthorisationContainer signInUser={this.signInUser} />
+    }
+  }
+
+  signOutUser = () => 
+    this.setState({currentUser: null})
 
 
   render() {
     return (
-      <React.Fragment>
-      <Nav />
-
-      {true ? null : <SignUpContainer />}
-      <Store categories={this.state.categories}/>
-
-      </React.Fragment>
+    <Router>
+      <>
+        <Route path='/' render={() => <Nav signOutUser={this.signOutUser} currentUser={this.state.currentUser}/> } />
+        <Route path='/' render={() =>  this.isLoggedIn(this.state.currentUser) } />
+      </>
+    </Router>
     );
   }
 }

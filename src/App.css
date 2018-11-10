@@ -97,11 +97,40 @@
 .sign-up-container {
   background-color: lightblue;
   height: 600px;
-  width: 400px;
+  width: 500px;
   margin: auto;
   margin-top: 60px;
   border-radius: 5%;
   box-shadow: 5px 10px 5px;
   text-align: center;
 
+}
+
+form {
+ margin: 0 auto;
+ margin-top: 100px;
+
+}
+
+.formContainer {
+  display: inline-block;
+  width:300px;
+}
+
+select[type=dropdown]{
+  height: 40px;
+}
+
+input[type=text], input[type=password], select[type=dropdown]{
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.sign-up {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-top: 20px;
 }

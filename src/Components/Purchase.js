@@ -1,7 +1,7 @@
 import React from 'react'
+import Payment from './Payment'
 
 export default class Purchase extends React.Component {
-
 
   calculateTotalCost() {
     let counter = 0;
@@ -27,8 +27,7 @@ export default class Purchase extends React.Component {
      <div className="purchase">
        { this.listAllItems() }
      <p> Total : £ <strong>{ this.calculateTotalCost() }</strong> </p>
+        {<Payment total={ this.calculateTotalCost() } purchase={this.props.purchase} handleDeleteAllButton={this.props.handleDeleteAllButton}/>}
      </div>
   )
   }
-
-}

@@ -10,6 +10,7 @@ export default class Store extends React.Component {
   }
 
 
+
   addToPurchase = (newItem) => {
     let itemChange = 0
 
@@ -27,14 +28,15 @@ export default class Store extends React.Component {
     })
   }
 
-
+  handleDeleteAllButton = () => {
+    this.setState({currentPurchase: []})
+  }
 
   render() {
     return(
     <div className="store-welcome">
-
     <h1>Welcome back, {this.props.currentUser.name}</h1>
-    <Purchase purchase={this.state.currentPurchase} removefromPurchase={this.removefromPurchase}/>
+    <Purchase purchase={this.state.currentPurchase} removefromPurchase={this.removefromPurchase} handleDeleteAllButton={this.handleDeleteAllButton}/>
       <CategoriesContainer categories={this.props.currentUser.categories} addToPurchase={this.addToPurchase} />
     </div>
   )}

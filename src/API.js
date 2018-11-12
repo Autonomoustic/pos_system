@@ -22,6 +22,21 @@ class API {
     }).then(resp => resp.json())
   }
 
+  static postNewTransaktion (newPur) {
+    return fetch('http://localhost:3001/transaktions', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newPur)
+    }).then(resp => resp.json())
+  }
+
+  static postSoldItem(soldItem) {
+    return fetch('http://localhost:3001/sold_items', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(soldItem)
+    }).then(resp => resp.json())
+  }
 }
 
 API.init()

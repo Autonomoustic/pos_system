@@ -17,7 +17,6 @@ export default class Purchase extends React.Component {
   listAllItems (arr) {
     let newArr = this.removeDuplication(arr)
     let itemList = newArr.map(purchaseItem => <p> {purchaseItem.name}  x {this.props.purchase.filter(item => item.name === purchaseItem.name).length} <button onClick={() => this.props.removefromPurchase(purchaseItem)}>X</button></p>)
-    console.log(this.props)
     return itemList
   }
 
@@ -26,7 +25,9 @@ export default class Purchase extends React.Component {
       <div className='purchase'>
         { this.listAllItems() }
         <p> Total : £ <strong>{ this.calculateTotalCost() }</strong> </p>
-        {<Payment total={this.calculateTotalCost()} purchase={this.props.purchase} handleDeleteAllButton={this.props.handleDeleteAllButton} />}
+        {<Payment total={this.calculateTotalCost()} purchase={this.props.purchase} 
+        handleDeleteAllButton={this.props.handleDeleteAllButton} 
+        createTransaktion={this.props.createTransaktion}/>}
       </div>
     )
   }

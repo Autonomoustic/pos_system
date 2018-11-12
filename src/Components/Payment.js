@@ -4,9 +4,8 @@ class Payment extends React.Component {
     render(){
         return (
             <div>
-            <p>{this.props.total}</p>
             <button onClick={() => this.props.handleDeleteAllButton()}>Delete All!!</button>
-            {console.log(this.props.purchase)}
+            <button type='submit' onClick={() => this.props.createTransaktion(this.props.total)}>Proceed to Payment</button>
             </div>
         )
     }

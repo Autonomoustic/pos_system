@@ -52,15 +52,15 @@ class App extends Component {
 
   render() {
     return (
-    <Router>
-      <>
-        <Route path='/' render={() => <Nav signOutUser={this.signOutUser} currentUser={this.state.currentUser}/> } />
+      <Router>
+        <>
+          <Route path='/' render={() => <Nav signOutUser={this.signOutUser} currentUser={this.state.currentUser}/> } />
 
-        <Route exact path='/adminpage' render={() => <AdminPage currentUser={this.state.currentUser}/>} />
+          <Route exact path='/adminpage' render={() => <AdminPage currentUser={this.state.currentUser}/>} />
 
-        <Route path='/' render={(props) =>  this.isLoggedIn(this.state.currentUser, props) } />
-      </>
-    </Router>
+          <Route path='/' render={(props) =>  this.isLoggedIn(this.state.currentUser, props) } />
+        </>
+      </Router>
     );
   }
 }

@@ -19,7 +19,7 @@ const AdminItemList = props =>
             props.currentUser ?
             props.currentUser.categories.map(category => {
               return category.items.map(item => {
-                return <AdminItem item={item} />
+                return <AdminItem unitsSold={props.unitsSold(item)} item={item} />
               })
             })
             :

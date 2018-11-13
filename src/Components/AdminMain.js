@@ -6,7 +6,7 @@ import AdminNav from './AdminNav'
 const AdminMain = props =>
   <div className='admin-container'>
     <AdminNav />
-    <AdminItemList currentUser={props.currentUser} />
+    <AdminItemList unitsSold={props.unitsSold} currentUser={props.currentUser} />
   </div>
 
 export default AdminMain

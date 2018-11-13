@@ -5,6 +5,7 @@ const AdminItem = props =>
     <th scope='row'>{props.item.name}</th>
     <td>{props.item.category_id}</td>
     <td>£{props.item.price}</td>
+    <td>{props.unitsSold}</td>
   </tr>
 
 export default AdminItem

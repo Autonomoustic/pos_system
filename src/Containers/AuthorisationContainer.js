@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
 import SignUp from '../Components/SignUp'
 import SignIn from '../Components/SignIn'
@@ -39,9 +39,11 @@ class SignUpContainer extends React.Component {
     event.preventDefault()
     this.setState({username: event.target.uname.value, password: event.target.psw.value})
     this.props.signInUser(event.target.uname.value, event.target.psw.value)
+    this.props.history.push('/')
   }
 
   render () {
+
     return (
       <>
       <Route exact path='/' render={() => <SignUp error={this.state.error} handleSubmit={this.signUpNewUser}/> }/>

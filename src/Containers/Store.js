@@ -1,7 +1,10 @@
 import React from 'react'
 import CategoriesContainer from './CategoriesContainer'
 import Purchase from '../Components/Purchase'
+
 import API from '../API'
+
+import { Route } from 'react-router-dom'
 
 export default class Store extends React.Component {
 
@@ -47,17 +50,20 @@ export default class Store extends React.Component {
   }
 
   render() {
-    return(
-    <div className="store-welcome">
-    <h1>Welcome back, {this.props.currentUser.name}</h1>
-
-    <Purchase purchase={this.state.currentPurchase} 
+  return (
+    <Route exact path='/'
+    render={() => <div className="store-welcome">
+      <h1>Welcome back, {this.props.currentUser.name}</h1>
+      <Purchase purchase={this.state.currentPurchase} 
     removefromPurchase={this.removefromPurchase} 
     handleDeleteAllButton={this.handleDeleteAllButton} 
     createTransaktion={this.createTransaktion}/>
 
       <CategoriesContainer categories={this.props.currentUser.categories} addToPurchase={this.addToPurchase} />
     </div>
-  )}
+      }
+      />
+    )
+  }
 
 }

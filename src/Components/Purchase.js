@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Popup from "reactjs-popup";
 import Payment from './Payment'
 
 export default class Purchase extends React.Component {
@@ -25,9 +26,13 @@ export default class Purchase extends React.Component {
       <div className='purchase'>
         { this.listAllItems() }
         <p> Total : £ <strong>{ this.calculateTotalCost() }</strong> </p>
-        {<Payment total={this.calculateTotalCost()} purchase={this.props.purchase} 
-        handleDeleteAllButton={this.props.handleDeleteAllButton} 
-        createTransaktion={this.props.createTransaktion}/>}
+        <button onClick={() => this.props.handleDeleteAllButton()}>Delete All!!</button>
+
+        <Popup trigger={<button> proceed to pament</button>} position="right center">
+         <div>{<Payment total={this.calculateTotalCost()} purchase={this.listAllItems()} 
+            handleDeleteAllButton={this.props.handleDeleteAllButton} 
+            createTransaktion={this.props.createTransaktion}/>}</div>
+        </Popup>
       </div>
     )
   }

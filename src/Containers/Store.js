@@ -26,7 +26,8 @@ export default class Store extends React.Component {
     this.setState({currentPurchase: []})
   }
 
-  createTransaktion = (currentTotal) => {
+  createTransaktion = (event, currentTotal) => {
+    event.preventDefault()
     if(this.state.currentPurchase.length > 0){
       const newPur = {
         total: currentTotal,

@@ -6,6 +6,16 @@
   background-color: lightblue;
 }
 
+.AdminNav {
+ float: left;
+ text-align: left;
+ margin: 0 auto;
+ width: 90%;
+ position: relative;
+ background-color: transparent;
+ justify-content: left;
+}
+
 .nav_logo {
   display: flex;
   align-items: center;
@@ -27,6 +37,10 @@
 
 }
 
+.adminNavList {
+  align-items:
+}
+
 .nav_list_item {
   padding: 10px 20px;
 
@@ -46,6 +60,10 @@
  align-items: center;
  height: 100%;
  padding: 0 1em;
+}
+
+.adminButton {
+  padding-left: 240px
 }
 
 .nav_button a {
@@ -154,4 +172,31 @@ input[type=text], input[type=password], select[type=dropdown]{
   border-left: 1px solid rgba(255, 153, 102, 0.3);
   margin-left: 78px;
   padding-left: 10px;
+}
+
+.admin-container {
+  background-color: lightblue;
+  min-width: 400px;
+  max-width: 80vw;
+  height: 650px;
+  margin:  auto;
+  margin-top: 60px;
+  border-radius: 5%;
+  box-shadow: 5px 10px 5px;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.admin-item-list {
+  background-color: lightgrey;
+  display: flex;
+  width: 80%;
+  margin: auto;
+  padding: 50px;
+  height: 70%;
+  display: inline-block;
+  position: relative;
 }

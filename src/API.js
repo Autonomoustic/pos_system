@@ -37,6 +37,11 @@ class API {
       body: JSON.stringify(soldItem)
     }).then(resp => resp.json())
   }
+
+  static getFunFact(total) {
+    return fetch(`http://numbersapi.com/${total}?json`)
+  .then(resp => resp.json())
+  }
 }
 
 API.init()

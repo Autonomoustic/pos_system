@@ -28,7 +28,7 @@ export default class Purchase extends React.Component {
         <p> Total : £ <strong>{ this.calculateTotalCost() }</strong> </p>
         <button onClick={() => this.props.handleDeleteAllButton()}>Delete All!!</button>
 
-        <Popup trigger={<button> proceed to pament</button>} position="right center" background="00000066">
+        <Popup trigger={<button className='btn'> proceed to pament</button>} position="right center" background="00000066">
          <div className="popup">{<Payment total={this.calculateTotalCost()} purchase={this.listAllItems()} 
             handleDeleteAllButton={this.props.handleDeleteAllButton} 
             createTransaktion={this.props.createTransaktion}/>}</div>

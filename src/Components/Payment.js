@@ -57,42 +57,43 @@ class Payment extends React.Component {
     render(){
         return (
             <div>
-            <button onClick={() => this.handleSubmit('Cash')}>££ Pay Cash ££</button>
-            <button onClick={() => this.handleSubmit('Card')}>Pay by Card</button>
+            <button className='btn' onClick={() => this.handleSubmit('Cash')}>££ Pay Cash ££</button>
+            <button className='btn' onClick={() => this.handleSubmit('Card')}>Pay by Card</button>
             {this.state.paymentChoice === '' ?
-                "Please select a payment method" : 
+                <p>Please select a payment method.</p> : 
                 this.state.paymentChoice === 'Cash' ?
                 <div>
-                <p>Please collect money from client.</p>
-                <label><b>Money received:</b></label>
-                <input type='text' placeholder='Enter amount received (number only)' onKeyUp={this.updateAmount}/>
-                    <p>{this.handleCashAmount(this.state.cashAmount)}</p>
-                <form onSubmit={(event) => this.props.createTransaktion(event, this.props.total)}>
-                    <button type='submit'>Proceed to Payment Cash</button>
-                </form>
+                    <p>Please collect money from client.</p>
+                    
+                    <label>Money received:</label>
+                    <input type='text' placeholder='Enter amount received (number only)' onKeyUp={this.updateAmount}/>
+                        <p>{this.handleCashAmount(this.state.cashAmount)}</p>
+                    <form className='payment-form' onSubmit={(event) => this.props.createTransaktion(event, this.props.total)}>
+                        <button className='btn' type='submit'>Proceed to Payment Cash</button>
+                    </form>
                 </div>
                 :
-              <div>
-                <p>Please enter card details</p>
-                <form onSubmit={event => this.props.createTransaktion(event, this.props.total)}> 
-                    <label><b>Name of the Cardholder</b></label>
-                    <input type='text' placeholder='Enter full name' name='cardholder' required />
+                <div>
+                    <p>Please enter card details</p>
+                    <form className='payment-form' onSubmit={event => this.props.createTransaktion(event, this.props.total)}> 
+                        <label><b>Name of the Cardholder</b></label>
+                        <input type='text' placeholder='Enter full name' name='cardholder' required />
 
-                    <label><b>Card number</b></label>
-                    <input type='text' placeholder='Enter numbers on the card' name='cardNumber' required />
+                        <label><b>Card number</b></label>
+                        <input type='text' placeholder='Enter numbers on the card' name='cardNumber' required />
 
-                    <label><b>Card expire date</b></label>
-                    <input type='text' placeholder='Enter expire date : format MM-YY' name='cardDate' required />
+                        <label><b>Card expire date</b></label>
+                        <input type='text' placeholder='Enter expire date : format MM-YY' name='cardDate' required />
 
-                    <label><b>Card digits</b></label>
-                    <input type='text' placeholder='Enter card 3 didgits' name='didgits' required />
+                        <label><b>Card digits</b></label>
+                        <input type='text' placeholder='Enter card 3 didgits' name='didgits' required />
 
-                    <button type='submit'>Proceed to Payment by Card</button>
-                </form>
+                        <button className='btn' type='submit'>Proceed to Payment by Card</button>
+                    </form>
                 </div>
             }
-            <button onClick={() => this.handleClickFact(this.props.total)}>Reveal fun fact about this total</button>
-           <p>{this.state.fact}</p>
+            <button className='btn' onClick={() => this.handleClickFact(this.props.total)}>Reveal fun fact about this total</button>
+            <p>{this.state.fact}</p>
             </div>
         )
     }

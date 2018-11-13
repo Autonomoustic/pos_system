@@ -157,11 +157,41 @@ input[type=text], input[type=password], select[type=dropdown]{
 }
 
 .popup{
-  padding: 40px;
-  background: rgb(96, 181, 225);
-  width: 300px
+  padding: 25px;
+  background: rgb(180, 215, 228);
+  width: 257px;
+  font-size: medium;
+  color: #005192;
+  font-weight: bold;
 }
 
 .popup-content{
-  background: red !important;
+  width: 308px !important;
+}
+
+.popup-overlay{
+  background: #0000005e !important;
+}
+
+.btn {
+  border-radius: 3em;
+  border-color: #3498db;
+  color: #005192;
+  font-size: medium;
+  font-weight: bold;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  transition: all 150ms ease-in-out;
+  margin: 5px;
+}
+.btn:hover {
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  background-color: #b9d6e2;
+}
+.btn:focus {
+  outline: 0px;
+}
+
+.payment-form{
+  margin: 0 auto;
+  margin-top: 0px;
 }

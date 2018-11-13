@@ -11,8 +11,6 @@ export default class Store extends React.Component {
     currentPurchase: []
   }
 
-
-
   addToPurchase = (newItem) => {
     let itemChange = 0
 

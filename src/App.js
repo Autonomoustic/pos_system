@@ -9,6 +9,7 @@ import Nav from './Components/Nav'
 import Store from './Containers/Store'
 import AdminPage from './Containers/AdminPage'
 import AuthorisationContainer from './Containers/AuthorisationContainer'
+import AnalyticsContainer from './Containers/AnalyticsContainer'
 
 import './App.css'
 
@@ -17,7 +18,6 @@ class App extends Component {
   state = {
     currentUser: null
   }
-
 
   componentDidMount () {
     this.getCurrentUser()
@@ -41,7 +41,7 @@ class App extends Component {
     if(currentUser){
       return <Store currentUser={this.state.currentUser} categories={this.state.categories}/>
     } else {
-      return <AuthorisationContainer {...props} currentUser={this.state.currentUser} signInUser={this.signInUser} />
+      return <AuthorisationContainer {...props} currentUser={this.state.currentUser} signInUser={API.signInUser} />
     }
   }
 
@@ -57,6 +57,7 @@ class App extends Component {
         <Route path='/' render={() => <Nav signOutUser={this.signOutUser} currentUser={this.state.currentUser}/> } />
 
         <Route exact path='/adminpage' render={() => <AdminPage currentUser={this.state.currentUser}/>} />
+        <Route exact path='/analytics' render={() => <AnalyticsContainer currentUser={this.state.currentUser} soldItems={API.getSoldItems}/>} />
 
         <Route path='/' render={(props) =>  this.isLoggedIn(this.state.currentUser, props) } />
       </>

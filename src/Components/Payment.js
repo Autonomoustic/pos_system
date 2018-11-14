@@ -98,7 +98,6 @@ class Payment extends React.Component {
         let cashy = parseInt(cash)
         let tot = parseInt(this.props.total)
         if (!!cashy && cashy >= tot){
-            this.setState({alertColor: ''})
             this.props.createTransaktion(event, this.props.total)
         } else {
             event.preventDefault()

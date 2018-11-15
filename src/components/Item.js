@@ -11,7 +11,7 @@ export default class Item extends React.Component {
   render() {
     const { item, addToPurchase } = this.props
     return (
-    <div> <h1>{ item.name }</h1>
+    <div> <h2>{ item.name }</h2>
     <h4> ID: { item.id }</h4>
     <h4> £{ item.price } </h4>
     <h4> Quantity: { this.state.quantity } </h4>

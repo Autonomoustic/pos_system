@@ -184,10 +184,12 @@ input[type=text], input[type=password], select[type=dropdown]{
   font-size: medium;
   color: #005192;
   font-weight: bold;
+  border-radius: 10em;
 }
 
 .popup-content{
   width: 308px !important;
+  border-radius: 12em;
 }
 
 .popup-overlay{
@@ -262,28 +264,7 @@ input[type=text], input[type=password], select[type=dropdown]{
   position: relative;
 }
 
-/* .customize-radio input[type = 'radio'] ~ span{
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-  background-size: 50px 50px;
-  background-repeat: no-repeat;
-  opacity: 0.3;
-}
-
-.visa-img {
-  background-image: url('https://image.flaticon.com/icons/png/64/196/196578.png');
-}
-.mastercard-img {
-  background-image: url('https://image.flaticon.com/icons/png/64/196/196561.png');
-  
-}
-.other-img {
-  background-image: url('https://image.flaticon.com/icons/png/64/138/138293.png');
-  
-} */
-
-.test1{
+.radio1{
   width: 50px;
   height: 50px;
   display: inline-block;
@@ -292,7 +273,7 @@ input[type=text], input[type=password], select[type=dropdown]{
   opacity: 1;
 }
 
-.test2{
+.radio2{
   width: 50px;
   height: 50px;
   display: inline-block;

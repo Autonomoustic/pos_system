@@ -9,6 +9,7 @@ class Payment extends React.Component {
         fact: '',
         cashAmount: '',
         selectedOption: ''
+
     }
 
     handleSubmit= (choice) => {
@@ -64,13 +65,13 @@ class Payment extends React.Component {
         })
     }
 
-    opacityOnSelectionVisa = () => {
+    opacityOnSelection = (boolean) => {
         if (this.state.selectedOption === ''){
-            return "test1"
-        } else if (this.state.selectedOption === 'visa') {
-            return "test1"
+            return "radio1"
+        } else if (boolean) {
+            return "radio1"
         } else {
-            return "test2"
+            return "radio2"
         }
     }
 
@@ -141,14 +142,14 @@ class Payment extends React.Component {
                         
                         <div>
                             <label><b>Card type</b><br/>
-                            <input type="radio" id="visa" name="radio" value="visa" checked={this.state.selectedOption === "visa"} onChange={(event) => this.handleCardChange(event)}/>
-                            <img className={this.opacityOnSelectionVisa()} src="https://image.flaticon.com/icons/png/64/196/196578.png"/>
+                            <input type="radio" value="visa" checked={this.state.selectedOption === "visa"} onChange={(event) => this.handleCardChange(event)}/>
+                            <img className={this.opacityOnSelection(this.state.selectedOption === "visa")} src="https://image.flaticon.com/icons/png/64/196/196578.png"/>
                             
-                            <input type="radio" id="mastercard" name="radio" value="mastercard" checked={this.state.selectedOption === "mastercard"} onChange={(event) => this.handleCardChange(event)}/>
-                            <img className={this.opacityOnSelectionMaster()} src="https://image.flaticon.com/icons/png/64/196/196561.png"/>
+                            <input type="radio" value="mastercard" checked={this.state.selectedOption === "mastercard"} onChange={(event) => this.handleCardChange(event)}/>
+                            <img className={this.opacityOnSelection(this.state.selectedOption === "mastercard")} src="https://image.flaticon.com/icons/png/64/196/196561.png"/>
               
-                            <input type="radio" id="other" name="radio" value="other" checked={this.state.selectedOption === "other"} onChange={(event) => this.handleCardChange(event)}/>
-                            <img className={this.opacityOnSelectionOther()} src="https://image.flaticon.com/icons/png/64/138/138293.png"/>
+                            <input type="radio" value="other" checked={this.state.selectedOption === "other"} onChange={(event) => this.handleCardChange(event)}/>
+                            <img className={this.opacityOnSelection(this.state.selectedOption === "other")} src="https://image.flaticon.com/icons/png/64/138/138293.png"/>
                             </label>
                         </div><br/>
 

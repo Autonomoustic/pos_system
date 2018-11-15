@@ -60,8 +60,11 @@ class AnalyticsContainer extends React.Component {
                 { this.props.currentUser && 
                     <div><h1>{ this.props.currentUser.name } Store Analytics </h1>
                     { topSoldItem() !== null ? <h4> Your top selling item is { topSoldItem() } </h4> : <h4> </h4> }
+                    {this.state.storeSoldItems ? <h4> You have sold {this.state.storeSoldItems.length} items </h4> : <h4> </h4> }
+                    <div>
                     <button onClick={() => showRecentTransactions()}>Recent Transactions</button>
-                    <button onClick={() => showSoldItems()}>Sold Items</button>
+                    <button onClick={() => showSoldItems()}>Recently Sold Items</button>
+                    </div>
                     {this.state.recentItems ? this.recentTransaktions() : this.listSoldItems() }
                 </div>
                 }
@@ -69,5 +72,5 @@ class AnalyticsContainer extends React.Component {
         )
     }
 }
-
+     
 export default AnalyticsContainer

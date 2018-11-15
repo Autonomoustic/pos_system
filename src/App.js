@@ -41,7 +41,7 @@ class App extends Component {
     if(currentUser){
       return <Store currentUser={this.state.currentUser} categories={this.state.categories}/>
     } else {
-      return <AuthorisationContainer {...props} currentUser={this.state.currentUser} signInUser={API.signInUser} />
+      return <AuthorisationContainer {...props} currentUser={this.state.currentUser} signInUser={this.signInUser} />
     }
   }
 
@@ -57,7 +57,7 @@ class App extends Component {
         <Route path='/' render={() => <Nav signOutUser={this.signOutUser} currentUser={this.state.currentUser}/> } />
 
         <Route exact path='/adminpage' render={() => <AdminPage currentUser={this.state.currentUser}/>} />
-        <Route exact path='/analytics' render={() => <AnalyticsContainer currentUser={this.state.currentUser} soldItems={API.getSoldItems}/>} />
+          <Route exact path='/analytics' render={() => <AnalyticsContainer currentUser={this.state.currentUser} getSoldItems={API.getSoldItems} getTransaktions={API.getTransaktions}/>} />
 
         <Route path='/' render={(props) =>  this.isLoggedIn(this.state.currentUser, props) } />
       </>

@@ -1,45 +1,70 @@
 import React from 'react'
 
-import API from '../API'
+import Analytic from '../Components/Analytic'
+
 
 class AnalyticsContainer extends React.Component {
 
     state = {
-        soldItems: []
+        storeSoldItems: [],
+        recentItems: false
     }
 
-    componentDidMount() {
-        this.props.soldItems()
-            .then(soldItems => this.setState({ soldItems: soldItems }))
+    componentWillMount () {
+        let { currentUser } = this.props
+        if (currentUser) {
+            this.props.getSoldItems(currentUser.name)
+                .then(storeSoldItems => this.setState({ storeSoldItems: storeSoldItems.sold_items_data }))
+        }else{
+            console.log('no current user')
+        }
     }
 
-    unitsSold = (item) => {
-        const unitsSold = this.state.soldItems.filter(soldItem => soldItem.item_id === item.id).length
-        return unitsSold
+    showRecentTransactions = () => {
+        this.setState({ recentItems: true })
     }
 
-    unitsSoldInLast7Days = () => {
-        const unitsSold = this.state.soldItems.filter(soldItem => soldItem.created_at > (Date.today - 7)).length
-        return unitsSold
+    showSoldItems = () => {
+        this.setState({ recentItems: false })
     }
 
-    mostRecentItemsSold = () => {
-        const recentUnitsSold = this.state.soldItems.sort((a,b) => a.created_at - b.created_at)
-        console.log(recentUnitsSold)
+    listSoldItems = () => {
+        let { storeSoldItems } = this.state
+        console.log(storeSoldItems)
+        return storeSoldItems.map(analytic => <Analytic analytic={analytic}/>)
     }
 
-   
+    topSoldItem = () => {
+        let storeSoldItemsCopy = [...this.state.storeSoldItems]
+       let topItem = storeSoldItemsCopy.reduce(
+                (a, b, i, arr) =>
+                    (arr.filter(v => v === a).length >= arr.filter(v => v === b).length ? a : b),
+                null)
+        return topItem ? topItem.itemName : "Unknown"
+    }
+
+
+    recentTransaktions = () => {
+        const recentTransaktions = this.props.currentUser.transaktions
+        if (recentTransaktions) {
+            return recentTransaktions.map(transaction => <Analytic transaction={transaction} soldItems={transaction.sold_items}/>)
+            }
+        }
+    
+
     render() {
+
+        const { showSoldItems, showRecentTransactions, topSoldItem } = this
         return (
             <div>
-                { this.props.currentUser && <h1> { this.props.currentUser.name }</h1> }
-                <h2> Store Analytics </h2>
-
-                <p> You have sold { this.state.soldItems.length } items since your store began! </p>
-                <p>In the last day, you have sold { this.mostRecentItemsSold() } items.</p>
-                <p>In the last seven days, you have sold { this.unitsSoldInLast7Days() } items.</p>
-
-
+                { this.props.currentUser && 
+                    <div><h1>{ this.props.currentUser.name } Store Analytics </h1>
+                    { topSoldItem() !== null ? <h4> Your top selling item is { topSoldItem() } </h4> : <h4> </h4> }
+                    <button onClick={() => showRecentTransactions()}>Recent Transactions</button>
+                    <button onClick={() => showSoldItems()}>Sold Items</button>
+                    {this.state.recentItems ? this.recentTransaktions() : this.listSoldItems() }
+                </div>
+                }
             </div>
         )
     }

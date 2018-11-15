@@ -44,6 +44,14 @@ class API {
   }
   static getSoldItems () {
     return fetch('http://localhost:3001/sold_items')
+
+  static getSoldItems (currentUsername) {
+    return fetch(`http://localhost:3001/stores/${currentUsername}/sold_items`)
+      .then(resp => resp.json())
+  }
+
+  static getTransaktions () {
+    return fetch('http://localhost:3001/transaktions')
       .then(resp => resp.json())
   }
 

@@ -21,7 +21,7 @@ class AdminPage extends React.Component {
   render () {
     return (
       <div>
-        <AdminMain unitsSold={this.unitsSold} currentUser={this.props.currentUser} />
+        <AdminMain match={this.props.match} unitsSold={this.unitsSold} currentUser={this.props.currentUser} />
       </div>
     )
   }

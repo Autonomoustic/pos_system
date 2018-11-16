@@ -10,19 +10,20 @@ class AdminPage extends React.Component {
   }
 
   componentDidMount () {
-    API.getSoldItems()
-    .then(soldItems => this.setState({soldItems: soldItems}))
+    if (this.props.currentUser){
+      API.getSoldItems(this.props.currentUser.name)
+      .then(soldItems => this.setState({soldItems: soldItems.sold_items_data}))
+    }
   }
 
   unitsSold = (item) => {
-    const unitsSold = this.state.soldItems.filter(soldItem => soldItem.item_id === item.id).length
-    return unitsSold
+    return this.state.soldItems.filter(itemSold => itemSold.itemName === item.name).length
   }
 
   render () {
     return (
       <div>
-        <AdminMain unitsSold={this.unitsSold} currentUser={this.props.currentUser} />
+        <AdminMain match={this.props.match} unitsSold={this.unitsSold} currentUser={this.props.currentUser} />
       </div>
     )
   }

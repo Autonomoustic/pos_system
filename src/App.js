@@ -37,9 +37,8 @@ class App extends Component {
   }
 
   isLoggedIn = (currentUser, props) => {
-    
     if(currentUser){
-      return <Store {...props} currentUser={this.state.currentUser} categories={this.state.categories}/>
+      return <Route  exact path='/' render={() => <Store currentUser={this.state.currentUser} categories={this.state.categories}/>} />
     } else {
       return <AuthorisationContainer {...props} currentUser={this.state.currentUser} signInUser={this.signInUser} />
     }
@@ -55,6 +54,7 @@ class App extends Component {
       <Router>
         <>
           <Route path='/' render={() => <Nav signOutUser={this.signOutUser} currentUser={this.state.currentUser}/> } />
+
           <Route exact path='/adminpage' render={() => <AdminPage currentUser={this.state.currentUser}/>} />
           <Route exact path='/analytics' render={() => <AnalyticsContainer currentUser={this.state.currentUser}
               getSoldItems={API.getStoreSoldItems}

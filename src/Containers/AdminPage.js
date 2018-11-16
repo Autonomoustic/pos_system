@@ -10,12 +10,14 @@ class AdminPage extends React.Component {
   }
 
   componentDidMount () {
-    API.getSoldItems(this.props.currentUser)
-    .then(soldItems => this.setState({soldItems: soldItems}))
+    if (this.props.currentUser){
+      API.getSoldItems(this.props.currentUser.name)
+      .then(soldItems => this.setState({soldItems: soldItems.sold_items_data}))
+    }
   }
 
   unitsSold = (item) => {
-    return 
+    return this.state.soldItems.filter(itemSold => itemSold.itemName === item.name).length
   }
 
   render () {

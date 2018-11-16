@@ -8,7 +8,6 @@ const AdminNavBar = props =>
     <ul className='nav_list adminNavList'>
       <li className='nav_list_item'><Link exact to='/additem'>Add Item</Link></li>
       <li className='nav_list_item'><Link exact to='/adminpage'>Sort-By</Link></li>
-      <li className='nav_list_item'><Link to='/'>Analytics</Link></li>
     </ul>
 
     <div className='nav_button adminButton'>

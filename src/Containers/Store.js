@@ -11,7 +11,7 @@ export default class Store extends React.Component {
   state = {
     currentPurchase: []
   }
-  
+
   addToPurchase = (newItem) => {
     if (this.state.currentPurchase[newItem]){
     }else {

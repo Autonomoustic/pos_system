@@ -178,18 +178,19 @@ input[type=text], input[type=password], select[type=dropdown]{
 }
 
 .popup{
-  padding: 25px;
+  padding: 50px;
   background: rgb(180, 215, 228);
   width: 257px;
   font-size: medium;
   color: #005192;
   font-weight: bold;
-  border-radius: 10em;
+  border-radius: 15em;
 }
 
 .popup-content{
-  width: 308px !important;
-  border-radius: 12em;
+  width: 357px !important;
+  border-radius: 20em;
+  padding: 5px;
 }
 
 .popup-overlay{

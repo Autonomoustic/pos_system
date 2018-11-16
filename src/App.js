@@ -57,7 +57,11 @@ class App extends Component {
 
           <Route exact path='/adminpage' render={(props) => <AdminPage currentUser={this.state.currentUser} {...props}/>} />
           
-          <Route exact path='/analytics' render={() => <AnalyticsContainer currentUser={this.state.currentUser} getSoldItems={API.getSoldItems} getTransaktions={API.getTransaktions}/>} />
+          <Route exact path='/analytics' render={() => <AnalyticsContainer 
+            currentUser={this.state.currentUser} 
+            getSoldItems={API.getSoldItems} 
+            getTransaktions={API.getTransaktions}/>} 
+          />
 
           <Route path='/' render={(props) =>  this.isLoggedIn(this.state.currentUser, props) } />
         </>

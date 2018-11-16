@@ -39,7 +39,7 @@ class App extends Component {
   isLoggedIn = (currentUser, props) => {
     
     if(currentUser){
-      return <Store currentUser={this.state.currentUser} categories={this.state.categories}/>
+      return <Store {...props} currentUser={this.state.currentUser} categories={this.state.categories}/>
     } else {
       return <AuthorisationContainer {...props} currentUser={this.state.currentUser} signInUser={this.signInUser} />
     }

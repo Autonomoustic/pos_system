@@ -32,7 +32,6 @@ import SearchItem from '../Components/SearchItem'
 
   filteredItems = () => {
     return this.props.categoryItems.filter(item =>{
-      console.log(item.name, this.state.filter)
       return item.name.toLowerCase().includes(this.state.filter.toLowerCase())})
   }
 
@@ -42,12 +41,12 @@ import SearchItem from '../Components/SearchItem'
   return (
     <div>
       {categoryItems.length > 0 ? <SearchItem updateFilter={this.updateFilter} filter={this.state.filter}/>: null}
-      { this.filteredItems().map( item =>
+      <div className='item-box'>{ this.filteredItems().map( item =>
       <Item item={item} 
       add={this.addToPurchase} 
       remove={this.removefromTransaction} 
       addToPurchase={this.props.addToPurchase} 
-      />)}
+      />)}</div>
     </div>
     )
   }

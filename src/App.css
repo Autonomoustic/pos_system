@@ -304,3 +304,13 @@ input[type=text], input[type=password], select[type=dropdown]{
 .sold-items {
     padding: 2px 16px;
 }
+
+.analytics-container {
+  min-width: 400px;
+  max-width: 80vw;
+  height: 650px;
+  margin:  auto;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+}

@@ -42,16 +42,24 @@ class API {
     return fetch(`http://numbersapi.com/${total}?json`)
   .then(resp => resp.json())
   }
+
   static getSoldItems () {
     return fetch('http://localhost:3001/sold_items')
+    .then(resp => resp.json())
+  }
 
-  static getSoldItems (currentUsername) {
+  static getStoreSoldItems (currentUsername) {
     return fetch(`http://localhost:3001/stores/${currentUsername}/sold_items`)
       .then(resp => resp.json())
   }
 
   static getTransaktions () {
     return fetch('http://localhost:3001/transaktions')
+      .then(resp => resp.json())
+  }
+
+  static getTransaktionSoldItems (id) {
+    return fetch(`http://localhost:3001/transaktions/${id}/sold_items`)
       .then(resp => resp.json())
   }
 

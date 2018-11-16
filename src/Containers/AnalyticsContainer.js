@@ -34,36 +34,38 @@ class AnalyticsContainer extends React.Component {
         return storeSoldItems.map(analytic => <Analytic analytic={analytic}/>)
     }
 
-    topSoldItem = () => {
-        let storeSoldItemsCopy = [...this.state.storeSoldItems]
-       let topItem = storeSoldItemsCopy.reduce(
-                (a, b, i, arr) =>
-                    (arr.filter(v => v === a).length >= arr.filter(v => v === b).length ? a : b),
-                null)
-        return topItem ? topItem.itemName : "Unknown"
-    }
-
 
     recentTransaktions = () => {
         const recentTransaktions = this.props.currentUser.transaktions
         if (recentTransaktions) {
-            return recentTransaktions.map(transaction => <Analytic transaction={transaction} soldItems={transaction.sold_items}/>)
+            let transaktionSoldItems = this.props.getTransaktionSoldItems()
+            return recentTransaktions.map(transaction => <Analytic transaction={transaction} transaktionSoldItems={this.props.getTransaktionSoldItems(transaction.id)} soldItems={transaction.sold_items}/>)
             }
         }
+    
+
+    topSoldItem = () => {
+        let storeSoldItemsCopy = [...this.state.storeSoldItems]
+        let topItem = storeSoldItemsCopy.reduce(
+            (a, b, i, arr) =>
+                (arr.filter(v => v === a).length >= arr.filter(v => v === b).length ? a : b),
+            null)
+        return topItem ? topItem.itemName : "Unknown"
+    }
     
 
     render() {
 
         const { showSoldItems, showRecentTransactions, topSoldItem } = this
         return (
-            <div>
+            <div className="analytics-container">
                 { this.props.currentUser && 
                     <div><h1>{ this.props.currentUser.name } Store Analytics </h1>
                     { topSoldItem() !== null ? <h4> Your top selling item is { topSoldItem() } </h4> : <h4> </h4> }
                     {this.state.storeSoldItems ? <h4> You have sold {this.state.storeSoldItems.length} items </h4> : <h4> </h4> }
                     <div>
-                    <button onClick={() => showRecentTransactions()}>Recent Transactions</button>
-                    <button onClick={() => showSoldItems()}>Recently Sold Items</button>
+                    <button className="btn" onClick={() => showRecentTransactions()}>Recent Transactions</button>
+                    <button className="btn" onClick={() => showSoldItems()}>Recently Sold Items</button>
                     </div>
                     {this.state.recentItems ? this.recentTransaktions() : this.listSoldItems() }
                 </div>

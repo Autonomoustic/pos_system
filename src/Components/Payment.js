@@ -1,8 +1,6 @@
 import React from 'react'
 import API from '../API'
 
-import { Link } from 'react-router-dom'
-
 class Payment extends React.Component {
     state = {
         paymentChoice: '',
@@ -72,26 +70,6 @@ class Payment extends React.Component {
             return "radio1"
         } else {
             return "radio2"
-        }
-    }
-
-    opacityOnSelectionMaster = () => {
-        if (this.state.selectedOption === ''){
-            return "test1"
-        } else if (this.state.selectedOption === 'mastercard') {
-            return "test1"
-        } else {
-            return "test2"
-        }
-    }
-
-    opacityOnSelectionOther = () => {
-        if (this.state.selectedOption === ''){
-            return "test1"
-        } else if (this.state.selectedOption === 'other') {
-            return "test1"
-        } else {
-            return "test2"
         }
     }
         

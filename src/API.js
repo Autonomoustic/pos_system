@@ -42,8 +42,6 @@ class API {
     return fetch(`http://numbersapi.com/${total}?json`)
   .then(resp => resp.json())
   }
-  static getSoldItems () {
-    return fetch('http://localhost:3001/sold_items')
 
   static getSoldItems (currentUsername) {
     return fetch(`http://localhost:3001/stores/${currentUsername}/sold_items`)
